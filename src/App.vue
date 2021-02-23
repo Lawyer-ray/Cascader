@@ -2,8 +2,6 @@
   <div id="app">
     <div class="">
       <Banner></Banner>
-
-
     </div>
     <b-container>
 <!--      <Alert></Alert>-->
