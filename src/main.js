@@ -15,9 +15,6 @@ Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
-import VDistpicker from 'v-distpicker'
-
-Vue.component('v-distpicker', VDistpicker)
 import ElementUI from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
