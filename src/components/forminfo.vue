@@ -36,7 +36,11 @@
       </b-alert>
 
       <b-form-group id="input-group-1" label="请选择征地范围：">
-        <el-select v-model="province" placeholder="--选择省份--">
+        <el-select
+          v-model="province"
+          placeholder="--选择省份--"
+          @change="changeProvince"
+        >
           <el-option
             v-for="item in areaOptions"
             :key="item.value"
@@ -50,6 +54,7 @@
           v-if="province && province.children"
           v-model="city"
           placeholder="--选择城市--"
+          @change="changeCity"
         >
           <el-option
             v-for="item in province.children"
@@ -63,6 +68,7 @@
           v-if="city && city.children"
           v-model="district"
           placeholder="--选择区县--"
+          @change="changeDistrict"
         >
           <el-option
             v-for="item in city.children"
@@ -253,6 +259,19 @@ export default {
     };
   },
   methods: {
+    changeProvince() {
+      this.city = null;
+      this.district = null;
+      this.street = null;
+    },
+    changeCity() {
+      this.district = null;
+      this.street = null;
+    },
+    changeDistrict() {
+      this.street = null;
+    },
+
     countDownChanged(dismissCountDown) {
       this.showDismissibleAlert = false;
       if (this.value2[0] == "越秀区") {
